@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Das erste Date</title>
+<style>
+  :root{
+    --bg:#000; --ink:#e9e9e9; --dim:#9a9a9a;
+    --kw:#a8ff60;  
+    --tag:#80e5ff; 
+    --hi:#ffe07a; 
+    --ok:#b7ffb7;  
+    --err:#ffb3b3; 
+    --box:#2a2a2a; 
+  }
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    display:grid; place-items:center;
+  }
+  .wrap{
+    width:min(900px,92vw); border:1px solid var(--box); padding:18px;
+    box-shadow:0 0 0 2px #111 inset, 0 0 40px rgba(255,255,255,.05);
+    position:relative; background:#000;
+  }
+ 
+  .wrap::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:repeating-linear-gradient(to bottom, rgba(255,255,255,.035) 0 2px, transparent 2px 4px);
+    opacity:.25; mix-blend-mode:screen;
+  }
+  h1{margin:0 0 8px 0; font-weight:700; letter-spacing:.5px}
+  .muted{color:var(--dim)}
+  .kw{color:var(--kw)}
+  .tag{color:var(--tag)}
+  .hi{color:var(--hi)}
+  .box{border:1px solid var(--box); padding:12px; margin:14px 0; background:#050505}
+  .gate{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:8px}
+  input[type="text"]{background:#000; color:var(--ink); border:1px solid #3a3a3a; padding:8px 10px; min-width:220px}
+  button{all:unset; border:1px solid #5b5b5b; padding:8px 12px; cursor:pointer}
+  button:hover{background:#0d0d0d}
+  .msg{min-height:1.2em}
+  .ok{color:var(--ok)} .err{color:var(--err)}
+  details{border:1px dashed #3a3a3a; padding:8px; margin-top:8px}
+  summary{cursor:pointer}
+  hr{border:none; border-top:1px dashed #333; margin:14px 0}
+  pre{margin:0; white-space:pre-wrap}
+
+  dialog{border:1px solid var(--box); background:#000; color:var(--ink); padding:0; width:min(880px,92vw)}
+  .d-head{padding:8px 10px; border-bottom:1px solid var(--box); display:flex; justify-content:space-between; align-items:center}
+  .d-body{padding:14px}
+  .x{all:unset; border:1px solid #5b5b5b; padding:4px 8px; cursor:pointer}
+  .leaf{color:#7dff7d}
+  .star{color:#ddd}
+  .music{color:#c6e2ff}
+  .label{color:#ddd}
+  .ascii-box{border:1px solid var(--box); padding:10px; margin-top:10px}
+  a{color:var(--tag); text-decoration:underline}
+  .ascii-title{
+  margin: 0 0 8px 0;
+  white-space: pre;          
+  overflow: hidden;       
+  max-width: 100%;
+  line-height: 1.05;
+  font-size: clamp(9px, 1.9vw, 16px);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <pre class="ascii-title">
+  _____                            _              _____        _       
+ |  __ \                          | |            |  __ \      | |      
+ | |  | | __ _ ___    ___ _ __ ___| |_ ___  ___  | |  | | __ _| |_ ___ 
+ | |  | |/ _` / __|  / _ \ '__/ __| __/ _ \/ __| | |  | |/ _` | __/ _ \
+ | |__| | (_| \__ \ |  __/ |  \__ \ ||  __/\__ \ | |__| | (_| | ||  __/
+ |_____/ \__,_|___/  \___|_|  |___/\__\___||___/ |_____/ \__,_|\__\___|
+</pre>
+
+  <div class="box">
+<pre>
+Hey Lea, eigentlich sagt man ja, ein erstes Date sollte entspannt und unkompliziert sein. 
+Aber du bist kein „irgendwer“ – deshalb wollte ich dir auch etwas Besonderes schenken. 
+Also habe ich diesen kleinen Brief in Form einer Webseite gebastelt.
+
+<i>Dort warten drei Fragen auf dich. Wenn du sie beantwortest, verrate ich dir meinen Plan, 
+wie ich mir unser Date vorstelle und was wir machen.</i>
+</pre>
+  </div>
+
+
+  <div class="box" id="step1">
+<pre>▌<span class="tag">RÄTSEL [1/3]</span>
+|  <span class="kw">Ich habe dir eine Playlist erstellt.</span>
+|  Wie viele Songs sind darin?</pre>
+    <div class="gate">
+      <input id="ans1" type="text" placeholder="" autocomplete="off" />
+      <button data-check="1">prüfen</button>
+    </div>
+    <div class="msg" id="msg1"></div>
+  </div>
+
+
+  <div class="box" id="after1" hidden>
+<pre>
+Ich kann mich noch echt ziemlich gut daran erinnern, als wir uns das erste Mal gesehen haben.
+Eigentlich ist es auch das einzige, an das ich mich erinnere. Es war der 13. Dezember. 
+Du saßt direkt hinter mir. Du warst die erste neue Person, die ich an dem Tag sozusagen 
+kennengelernt habe und mir den Namen noch merken konnte. Ich hatte dich ziemlich positiv 
+in Erinnerung, weil ich schon ab da einige Gemeinsamkeiten feststellen konnte.
+</pre>
+  </div>
+
+ 
+  <div class="box" id="step2" hidden>
+<pre>▌<span class="tag">RÄTSEL [2/3]</span>  <span class="kw">JAVA</span> / Tja. Ich will es dir nicht zu einfach machen :)
+|  Du bekommst eine Datei <span class="kw">Raetsel.java</span> mit einer <span class="kw">main</span>-Methode,
+|  in der nur ein einziger String aus den Zeichen <span class="kw">"\"</span>, <span class="kw">"|"</span>, <span class="kw">"/"</span>, <span class="kw">"-"</span> steht.
+|
+|  Starte mit <span class="kw">int x = 0</span>. Lies den String von links nach rechts und wende Regeln an:
+|    <span class="kw">"\"</span>  → x = x + 1
+|    <span class="kw">"-"</span>  → x = x - 1
+|    <span class="kw">"|"</span>  → lösche dieses Zeichen <i>und die nächsten 5 Zeichen</i> aus dem String (sprung nach vorn)
+|    <span class="kw">"/"</span>  → lösche dieses Zeichen <i>und die vorherigen 3 Zeichen</i> (sprung zurück)
+|
+|  Gib am Ende <span class="kw">eine zweistellige Zahl</span> (00–99) aus.
+</pre>
+    <div class="gate" style="margin-top:6px;">
+      <button id="dl">Raetsel.java herunterladen</button>
+      <span class="muted">(~2 KB)</span>
+    </div>
+    <details><summary><b>Hinweis</b> (einmal klicken)</summary>
+      Zähle nur <code>\</code> und <code>-</code>, die du wirklich „besuchst“. Sprünge entfernen Zeichen:
+      <code>|</code> killt sich + 5 danach, <code>/</code> killt sich + 3 davor. Bleib nach <code>|</code> an derselben Indexposition,
+      setz dich nach <code>/</code> auf den Start des gelöschten Blocks. Wenn du das konsistent machst, landest du bei einer runden 2-stelligen Zahl.
+    </details>
+
+    <div class="gate">
+      <input id="ans2" type="text" placeholder="" maxlength="2" autocomplete="off" />
+      <button data-check="2">prüfen</button>
+    </div>
+    <div class="msg" id="msg2"></div>
+  </div>
+
+ 
+  <div class="box" id="after2" hidden>
+<pre>
+Ich hab es im ersten Semester echt genossen, mich mit dir zu unterhalten. 
+Irgendwann musste ich wieder an dich denken – diesmal in einem ganz anderen Licht. 
+Manchmal kommt es mir so vor, als hätten wir uns zur falschen Zeit begegnet. 
+Denn eigentlich wünschte ich, wir hätten uns schon viel früher kennengelernt.
+</pre>
+  </div>
+
+
+  <div class="box" id="step3" hidden>
+<pre>▌<span class="tag">RÄTSEL [3/3]</span>
+|  Auch wenn ich nicht oft genug über dieses Album gesprochen habe, bedeutet es mir sehr viel.
+|  Ich komme immer zu diesem Album zurück, falls sich die Welt um mich herum mal wieder zu schnell
+|  dreht. Jeder Song weckt eine Erinnerung und inspiriert mich immer wieder neu.
+|
+|  <span class="label">Frage:</span> Wie viele Songs hat dieses Album?
+</pre>
+    <details><summary><b>Tipp</b></summary>
+      Es ist ein 70er-Jahre-Werk, das gern als Musik „für Zimmerpflanzen“ beschrieben wird. :)
+    </details>
+    <div class="gate">
+      <input id="ans3" type="text" placeholder="" autocomplete="off" />
+      <button data-check="3">prüfen</button>
+    </div>
+    <div class="msg" id="msg3"></div>
+  </div>
+
+  <div class="box" id="beforeLetter" hidden>
+<pre>
+Als das zweite Semester begann, bekam ich kaum ein Wort heraus, wenn ich mit dir gesprochen habe. 
+Obwohl ich jederzeit die Initiative hätte ergreifen können, dich einfach zu fragen, habe ich gezögert – 
+gerade weil du mir wichtig bist. Und manchmal merke ich es noch immer, wenn wir uns gegenüberstehen: 
+Schon ein längerer Blickkontakt macht mich nervös.
+
+Ich finde dich unglaublich attraktiv und gleichzeitig zähle ich dich zu den klügsten Menschen, 
+die ich je kennengelernt habe. Manchmal wirkt das fast einschüchternd, doch noch viel stärker zieht es mich an. 
+Am meisten berührt mich aber dein Lächeln. Es ist so ansteckend, dass es jeden Moment mit dir besonders macht.
+
+<i>Also: du darfst den Brief gerne öffnen :)</i>
+</pre>
+    <div class="gate" style="margin-top:10px">
+      <button id="openLetter">[ Brief öffnen ]</button>
+    </div>
+  </div>
+
+
+  <dialog id="letter">
+    <div class="d-head">
+      <div>— Einladung —</div>
+      <button class="x" id="close">[ schließen ]</button>
+    </div>
+    <div class="d-body">
+<pre class="leaf">
+        /\            /\                  
+       /**\          /**\                 
+      /****\        /****\         /\     
+     /******\      /******\       /**\    
+    /********\    /********\     /****\   
+        ||            ||           ||     
+</pre>
+<pre class="star">
+* * *           *        *        *      *      *
+</pre>
+<pre>
+Am <b>18.09.2025</b> um <b>16:00 Uhr</b>:
+Wir gehen zusammen spazieren – zum <b>Krückau-Park</b> in der Nähe der Hochschule,
+um nach Englisch einfach noch ein bisschen runterzukommen.
+</pre>
+<pre class="star">
+* * *           *        *        *      *      *
+</pre>
+<pre>
+Ab <b>18:00 Uhr</b> lade ich dich zum Essen ein – in dieses schöne Restaurant am <b>Steindampark</b>.
+</pre>
+<pre class="music">
+~ ~  ~   ~  ~    ~      ~   ~   ~    ~       ~
+</pre>
+<pre>
+Anschließend habe ich zwei Karten für ein kleines, privates Konzert gefunden ;)
+</pre>
+<div class="ascii-box">
+<pre>
+---------------------------------------------
+| Privatkonzert für Lea <3                  |
+| Drei besonders ausgewählte Klavierstücke  |
+---------------------------------------------
+</pre>
+</div>
+    </div>
+  </dialog>
+
+</div>
+
+<script>
+(function(){
+
+  const EXPECT1 = "38";
+  const EXPECT2 = "13";
+  const EXPECT3 = "10";
+
+
+  const $ = s => document.querySelector(s);
+  const step1 = $('#step1'), after1 = $('#after1');
+  const step2 = $('#step2'), after2 = $('#after2');
+  const step3 = $('#step3'), beforeLetter = $('#beforeLetter');
+  const msg1 = $('#msg1'), msg2 = $('#msg2'), msg3 = $('#msg3');
+
+  function ok(el, t){ el.textContent = t; el.className = 'msg ok'; }
+  function err(el, t){ el.textContent = t; el.className = 'msg err'; }
+
+
+  document.querySelectorAll('button[data-check]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.getAttribute('data-check');
+      if (id==='1'){
+        const v = ($('#ans1').value||'').trim().toLowerCase();
+        if (v===EXPECT1){ ok(msg1,'richtig. weiter …'); after1.hidden=false; step2.hidden=false; }
+        else err(msg1,'knapp daneben – denk an genau diese Playlist.');
+      }
+      if (id==='2'){
+        const v = ($('#ans2').value||'').trim();
+        if (/^\d{2}$/.test(v) && v===EXPECT2){ ok(msg2,'nice. letzte prüfung …'); after2.hidden=false; step3.hidden=false; }
+        else err(msg2,'zweistellig, konsistent mit den Sprüngen & Löschungen.');
+      }
+      if (id==='3'){
+        const v = ($('#ans3').value||'').trim().toLowerCase();
+        if (v===EXPECT3){ ok(msg3,'volltreffer.'); beforeLetter.hidden=false; }
+        else err(msg3,'Tipp öffnen? Es geht um Musik „für Zimmerpflanzen“.');
+      }
+    });
+  });
+
+
+  [['#ans1',1],['#ans2',2],['#ans3',3]].forEach(([sel,n])=>{
+    const input = $(sel);
+    input.addEventListener('keydown', e=>{
+      if (e.key==='Enter') document.querySelector(`button[data-check="${n}"]`).click();
+    });
+  });
+
+
+  const dlg = document.getElementById('letter');
+  $('#openLetter')?.addEventListener('click', ()=> dlg.showModal());
+  $('#close').addEventListener('click', ()=> dlg.close());
+
+  
+  $('#dl').addEventListener('click', ()=>{
+    const code = `// Raetsel.java — Sry fuer ein Java-Raetsel, aber ich wollte was kniffliges :)
+// Kompilieren: javac Raetsel.java
+// Starten (nach Implementierung deiner Logik): java Raetsel
+//
+// Regeln (konsistent zur Webseite):
+//   int x = 0;
+//   Lies von links nach rechts über s (Mutable String):
+//     '\\\\' -> x = x + 1; i++
+//     '-'   -> x = x - 1; i++
+//     '|'   -> lösche dieses Zeichen UND die nächsten 5 Zeichen (falls vorhanden); i bleibt gleich
+//     '/'   -> lösche dieses Zeichen UND die vorherigen 3 Zeichen (falls vorhanden); i wird auf Start des gelöschten Blocks gesetzt
+//   Gib x als zweistellige Zahl (00–99) aus (modulo 100, positiv).
+//
+// Hinweis: Zähle nur die wirklich durchlaufenen \\\\ und -.
+// Ziel: eine runde zweistellige Zahl.
+//
+// Implementiere die Schleife selbst. Hier ist nur der Datensatz:
+public class Raetsel{
+  public static void main(String[] args){
+    String s =
+      "|||||\\\\\\\\-\\\\-\\\\|----/\\\\\\\\\\\\-\\\\|\\\\-\\\\-\\\\\\\\/---|\\\\\\\\-\\\\-\\\\\\\\|----/\\\\\\\\\\\\-\\\\|\\\\-\\\\-\\\\\\\\/---"
+    + "|\\\\\\\\-\\\\-\\\\\\\\|----/\\\\\\\\\\\\-\\\\|\\\\-\\\\-\\\\\\\\/---|----/\\\\\\\\\\\\-\\\\"
+    + "|-\\\\\\\\\\\\|----/\\\\\\\\\\\\-\\\\|\\\\-\\\\-\\\\\\\\/---|-\\\\\\\\\\\\"
+    + "|----/\\\\\\\\\\\\-\\\\|\\\\-\\\\-\\\\\\\\/---|\\\\\\\\\\\\-\\\\-\\\\-\\\\\\\\|"
+    + "----/\\\\\\\\\\\\-\\\\|\\\\-\\\\-\\\\\\\\/---|\\\\-\\\\-\\\\\\\\-\\\\\\\\\\\\|/---|"
+    + "\\\\\\\\-\\\\-\\\\\\\\|----/\\\\\\\\\\\\-\\\\|\\\\-\\\\-\\\\\\\\/---|--\\\\\\\\\\\\\\\\|"
+    + "----/\\\\\\\\\\\\-\\\\|\\\\-\\\\-\\\\\\\\/---|\\\\\\\\-\\\\-\\\\\\\\|----/----";
+    // TODO: Deine Lösung hier (siehe Regeln oben).
+    System.out.println("Implementiere die Logik laut Kommentar und gib die 2-stellige Lösung aus.");
+  }
+}
+`;
+    const blob = new Blob([code], {type:'text/x-java-source'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'Raetsel.java';
+    document.body.appendChild(a); a.click();
+    setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 0);
+  });
+})();
+</script>
+</body>
+</html>
